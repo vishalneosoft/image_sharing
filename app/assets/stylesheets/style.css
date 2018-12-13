@@ -1,0 +1,54 @@
+.footer {
+  position: fixed;
+  background-color: red;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+}
+
+.footer div {
+  color: #fff;
+  font-size: 16px;
+}
+
+.main {
+  margin-bottom: 50px;
+}
+
+#error_explanation li {
+  color: #3c2929
+}
+
+.error {
+  color: red;
+}
+
+.user-name {
+  padding-right: 20px;
+  color: #fff;
+}
+
+.mt-25 {
+  margin-top: 25px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.pl-15 {
+  padding-left: 15px;
+}
+
+.pl-15 h1 {
+  color: #343a40 !important;
+}
+
+.card {
+  width: 20rem;
+}

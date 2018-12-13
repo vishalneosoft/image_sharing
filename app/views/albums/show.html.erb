@@ -1,0 +1,31 @@
+<div class="pl-15">
+  <div class="card mt-25">
+    <div class="card-header ">
+      Album ID: <%= @album.id %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Album Name: <%= @album.name %></h5>
+      <h6 class="card-subtitle mb-2 text-muted">Owner Name: <%= @album.owner.name %></h6>
+      <% if user_signed_in? && @album.owner_id == current_user.id %>
+        <%= link_to 'Delete Album', album_path(@album), method: :delete, class: 'card-link', data: {confirm: "Are you sure?"} %>
+      <% end %>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Created at: <%= @album.created_at.strftime("%d-%m-%Y") %> </small>
+    </div>
+  </div>
+  <% if @photos.count < 25 && user_signed_in? && @album.owner_id == current_user.id %>
+    <%= link_to 'Add Photo to Album', new_photo_path(album_id: @album.id), class: 'btn btn-outline-secondary mt-10' %>
+  <% end %>
+  <hr>
+  <% if @photos.present? %>
+    <div class="pl-15">
+      <h1>Showing Photos of Current Album</h1>
+    </div>
+    <div class="row">
+      <%= render partial: 'photos/photo' %>
+    </div>
+  <% else %>
+    <p>No Photos to Display</p>
+  <% end %>
+</div>

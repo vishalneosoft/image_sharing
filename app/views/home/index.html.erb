@@ -1,0 +1,21 @@
+<div class="pl-15">
+  <hr>
+  <%= link_to 'New Album', new_album_path, class: 'btn btn-outline-secondary' %>
+  <%= link_to 'New Photo', new_photo_path, class: 'btn btn-outline-secondary' %>
+</div>
+
+
+<% if @photos.present? %>
+  <div class="row">
+    <%= render partial: 'photos/photo' %>
+  </div>
+<% else %>
+  <hr>
+  <div class="col-12 pl-15 mt-10">
+    <div class="card">
+      <div class="card-header ">
+        Sorry, Please Create a Album or Add new Photo.
+      </div>
+    </div>
+  </div>
+<% end %>

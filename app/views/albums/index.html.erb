@@ -1,0 +1,38 @@
+<div class="pl-15">
+  <h1>Showing All Albums</h1>
+  <%= link_to 'New Album', new_album_path, class: 'btn btn-outline-secondary' %>
+  <%= link_to 'Show My Albums', my_albums_albums_path, class: 'btn btn-outline-secondary' %>
+</div>
+
+<div class="row">
+  <% if @albums.present? %>
+    <% @albums.each do |album| %>
+      <div class="pl-15">
+        <div class="col-4 mt-25">
+          <div class="card">
+            <div class="card-header ">
+              Album ID: <%= album.id %>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Album Name: <%= album.name %></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Owner Name: <%= album.owner.name %></h6>
+              <%= link_to 'Show Album', album_path(album), class: 'card-link' %>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Created at: <%= album.created_at.strftime("%d-%m-%Y") %> </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="col-8 pl-15 mt-10">
+      <div class="card">
+        <div class="card-header ">
+          Sorry you haven't added any Album, Please add New Album.
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= will_paginate @albums, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination justify-content-center mt-5' %>

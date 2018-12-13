@@ -1,0 +1,20 @@
+<% @photos.each_with_index do |photo, index| %>
+  <div class="pl-15">
+    <div class="col-4 mt-25">
+      <div class="card">
+        <%= link_to image_tag(photo.image.url, class: 'card-img-top'), photo.image.url, target: '_blank' %>
+        <div class="card-body">
+          <h5 class="card-title">Photo: <%= index + 1 %></h5>
+          <h5 class="card-title">Photo Tagline: <%= photo.tagline %></h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Album Name: <%= photo.album.name %></li>
+          <li class="list-group-item">Owner Name: <%= photo.owner.name %></li>
+        </ul>
+        <div class="card-footer">
+          <small class="text-muted">Created at: <%= photo.created_at.strftime("%d-%m-%Y") %> </small>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

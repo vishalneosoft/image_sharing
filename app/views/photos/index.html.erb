@@ -1,0 +1,21 @@
+<div class="pl-15">
+  <h1>Showing All Photos</h1>
+  <%= link_to 'New Photo', new_photo_path, class: 'btn btn-outline-secondary' %>
+  <%= link_to 'Show My Albums', my_albums_albums_path, class: 'btn btn-outline-secondary' %>
+</div>
+
+<div class="row">
+  <% if @photos.present? %>
+    <%= render partial: 'photo' %>
+  <% else %>
+    <hr>
+    <div class="col-12 pl-15 mt-10">
+      <div class="card">
+        <div class="card-header ">
+          Sorry, Please Create a Album or add new Photo.
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= will_paginate @photos, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination justify-content-center mt-5' %>

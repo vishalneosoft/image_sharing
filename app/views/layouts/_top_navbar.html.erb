@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">Blog Album</a>
+    <form class="form-inline">
+      <% if user_signed_in? %>
+        <div class='user-name'>Welcome, <%= current_user.name %></div>
+        <%= link_to 'Log out', destroy_user_session_path, :method => :delete, class: 'btn btn-outline-danger' %>
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-outline-primary' %>
+        <div style="padding-left: 10px;">
+          <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-success' %>
+        </div>
+      <% end %>
+    </form>
+  </div>
+</nav>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UserAlbum</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="main">
+    <%= render 'layouts/top_navbar' %>
+    <div class="container">
+      <div class="col-sm-12"> <%= flash_messages %></div>
+      <div class="btn-group col-sm-12 mt-25">
+        <% unless current_page?('/') %>
+          <%= link_to 'Home', root_path, class: 'btn btn-outline-dark' %>
+        <% end %>
+        <%= link_to 'Albums', albums_path, class: 'btn btn-outline-dark' %>
+        <%= link_to 'Photos', photos_path, class: 'btn btn-outline-dark' %>
+      </div>
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>
